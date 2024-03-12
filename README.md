@@ -69,7 +69,7 @@ Connect to EC2 instance and deploy the application
 2.	Switch to root user: 
     $ sudo su -
 3.	Clone this git repository
-    # git clone https://github.com/devopstraining611282/employees_php_app.git
+    # git clone https://github.com/Surya-vardhan0457/employees_php_app.git
 4.	Go to the employees_php_app directory
     # cd employees_php_app
 5.	Copy the employee-DBServer endpoint and paste in below command and run it connect to the instance, create a table "employees" and dump sample data in it.
