@@ -67,20 +67,20 @@ Launch an Ubuntu based EC2 instance with Apache Web Server, PHP and MySQL client
 Connect to EC2 instance and deploy the application
 1.	Connect to the instance using Git Bash/Putty/any SSH based tool
 2.	Switch to root user: 
-    $ sudo su -
+        $ sudo su -
 3.	Clone this git repository
-    # git clone https://github.com/Surya-vardhan0457/employees_php_app.git
+        # git clone https://github.com/Surya-vardhan0457/employees_php_app.git
 4.	Go to the employees_php_app directory
-    # cd employees_php_app
+        # cd employees_php_app
 5.	Copy the employee-DBServer endpoint and paste in below command and run it connect to the instance, create a table "employees" and dump sample data in it.
-    # mysql -h <rds-instance-endpoint> -u root -p < employees.sql
+        # mysql -h <rds-instance-endpoint> -u root -p < employees.sql
 6.	Remove the default index.html page from apache web servers default deployment path
-    # rm /var/www/html/index.html
+        # rm /var/www/html/index.html
 7.	Edit the config.php file to add the RDS instance endpoint and master password.
 8.	Open the config.php file in vi editor and replace the RDS_INSTANCE_ENDPOINT with the endpoint of the above launched MySQL based RDS instance.
 9.	Also replace the RDS_MASTER_PASSWORD with the master password specified while launching the above MySQL based RDS instance.
 10.	Now copy all the .php file into the apache web servers default deployment path
-    # cp *.php /var/www/html
+        # cp *.php /var/www/html
 11.	Copy the public ipv4 ip of the instance and paste in the browser to open the application. This will access the application using HTTP protocol.
 
 
