@@ -1,11 +1,4 @@
-# employees_php_app
-PHP based web app to perform CRUD operations on MYSQL.
-
-This web based app will perform the CREATE, READ, UPDATE & DELETE operations on MySQL installed on the same machine.
-We can configure it to perform the CRUD operations on MySQL installed on any other machine.
-
-
-Deploy 2-Tier PHP based Web App in AWS
+# Deploy 2-Tier PHP based Web App in AWS
 
 In this project, we will be deploying a PHP based web application (employee-php-app) in a 2-tier architecture provisioned in the AWS. The source code for the web application is available on GitHub.
 First we have to provision the 2-tier architecture in AWS. The 2-tier architecture includes a web-tier for deploying the web application. It is done in an Ubuntu based LAMP stack installed in the EC2 instance. This should be exposed to the internet.
@@ -13,8 +6,8 @@ Then we have to provision the data-tier in which we will launch a MySQL based Am
 For both the tiers, we will create an isolated network with 2 subnets, 1 public for web-tier and 1 private for data-tier. NAT gateway is created in public subnet to let RDS instance get minor updates as required.
 
 
-Follow the steps to deploy PHP based Web application in a 2-tier architecture provisioned in AWS:
-Isolated Network Setup:
+# Follow the steps to deploy PHP based Web application in a 2-tier architecture provisioned in AWS:
+ Isolated Network Setup:
 1.	Create a VPC with name "myVPC" & CIDR notation - 10.0.0.0/16
 2.	Create 2 Subnets with given details:
 a.	Name: Public-1a, AZ: us-east-1a, CIDR: 10.0.1.0/24
@@ -29,7 +22,7 @@ b.	Name: Private-RT, Routes: (add dest-0.0.0.0/0 & target-"myNGW"), Subnets: Pri
 a.	Name: employee-DB-SG, Inbound rules: [MySQL/Aurora@3306@employee-Web-SG]
 b.	Name: employee-Web-SG, Inbound rules: [SSH@22@My IP, HTTP@80@Anywhere, MySQL/Aurora@3306@employee-DB-SG]
 
-MySQL Based Amazon RDS Instance setup for Data Tier (Private Subnet)
+# MySQL Based Amazon RDS Instance setup for Data Tier (Private Subnet)
 Launch MySQL based RDS Instance in the Private-1a subnet with given details:
 1.	DB Engine: employee-DBServer
 2.	Templates: Free Tier
@@ -52,7 +45,7 @@ Launch MySQL based RDS Instance in the Private-1a subnet with given details:
 19.	For Maintenance: choose all default options.
 20.	For Deletion protection: choose all default options.
 
-Ubuntu based EC2 instance set up for Web Tier
+# Ubuntu based EC2 instance set up for Web Tier
 Launch an Ubuntu based EC2 instance with Apache Web Server, PHP and MySQL client as Web Tier:
 1.	Name: employee-Web
 2.	AMI: Ubuntu 22.04 LTS
@@ -64,7 +57,7 @@ Launch an Ubuntu based EC2 instance with Apache Web Server, PHP and MySQL client
 8.	Storage choose defaults
 9.	User data: add the script from the bootstrap.txt
 
-Connect to EC2 instance and deploy the application
+# Connect to EC2 instance and deploy the application
 1.	Connect to the instance using Git Bash/Putty/any SSH based tool
 2.	Switch to root user: 
         $ sudo su -
